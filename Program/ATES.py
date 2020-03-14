@@ -41,16 +41,18 @@ class Main:
             # todo: if > then for tree type to make different paths
             tree_type = split_file.tag
             new_file_name, old_ext = os.path.splitext(file_name)
+            test = Node('Block Communication', 'parent', 'cost', 'duration', 'exploited', 'countermeasure', 'siblings", "sample"', 'children", "second"')
         except FileNotFoundError:
             print("Input error. Please check the file's name and location and try again.")
         except Exception as e:
             print('Coding error. See below for details. \n', e)
         else:
             # Outputter.printer(file_name)
-            Outputter.printer(tree_type)
+            Outputter.printer('Tree type detected is: ' + tree_type)
             Outputter.printer(levels)
+            Outputter.printer(test)
             # Outputter.node_printer(node_list)
-            Outputter.file_writer(node_list, new_file_name)
+            Outputter.file_writer(node_list, new_file_name, test)
             Outputter.printer('Conversion successful!')
         finally:
             print('\n======================================='
@@ -60,16 +62,22 @@ class Main:
                   '\n=======================================')
 
 
-# class Node:
-#     def __init__(self, name, parent, cost, duration, exploited, countermeasure, siblings, children):
-#         self.name = name
-#         self.parent = parent
-#         self.cost = cost
-#         self.duration = duration
-#         self.exploited = exploited
-#         self.countermeasure = countermeasure
-#         self.siblings = siblings
-#         self.children = children
+class Node:
+    def __init__(self, name, parent, cost, duration, exploited, countermeasure, siblings, children):
+        self.name = name
+        self.parent = parent
+        self.cost = cost
+        self.duration = duration
+        self.exploited = exploited
+        self.countermeasure = countermeasure
+        self.siblings = siblings
+        self.children = children
+
+    def __repr__(self):
+        return f'(assert (node (name "{self.name}") (parent "{self.parent}") (cost "{self.cost}") ' \
+               f'(duration "{self.duration}") (exploited "{self.exploited}") (countermeasure "{self.countermeasure}")' \
+               f' (siblings "{self.siblings}) (children "{self.children})' \
+               f'))\n'
 #
 #     @property
 #     def __str__(self):
@@ -77,7 +85,7 @@ class Main:
 
 
 class Outputter:
-    def file_writer(self, new_file_name):
+    def file_writer(self, new_file_name, test):
         try:
             os.makedirs('Attack_Trees/JESS')
         except FileExistsError:
@@ -101,20 +109,40 @@ class Outputter:
                         ';;;;;;;;;;;;;;;;;;;;\n'
                         ';template for nodes:\n'
                         '(deftemplate node "Data about nodes"\n'
-                        '(slot name)\n'
-                        '(slot parent)\n'
-                        '(slot cost (default 0))\n'
-                        '(slot duration (default 0))\n'
-                        '(slot exploited (default FALSE))\n'
-                        '(slot countermeasure (default FALSE))\n'
-                        '(multislot siblings (default nil)) ;for "and" nodes of same level\n'
-                        '(multislot children (default nil)))\n'
+                        '	(slot name\n'
+                        '		(type STRING)\n'
+                        '		(default ""))\n'
+                        '	(slot parent\n'
+                        '		(type STRING)\n'
+                        '		(default ""))\n'
+                        '	(slot cost \n'
+                        '		(type INTEGER)\n'
+                        '		(default 0))\n'
+                        '	(slot duration \n'
+                        '		(type INTEGER)\n'
+                        '		(default 0))\n'
+                        '	(slot exploited \n'
+                        '		(type SYMBOL)\n'
+                        '		(default FALSE))\n'
+                        '	(slot countermeasure \n'
+                        '		(type SYMBOL)\n'
+                        '		(default FALSE))\n'
+                        '	(multislot siblings ;for "and" nodes of same level\n'
+                        '		(type STRING)\n'
+                        '		(default nil)) \n'
+                        '	(multislot children \n'
+                        '		(type STRING)\n'
+                        '		(default nil)))'
                         '\n'
                         ';;;;;;;;;;;;;;;;;;;;\n'
                         ';template for trees:\n'
                         '(deftemplate tree "Data about ATs"\n'
-                        '(slot name)\n'
-                        '(slot rootnode))\n'
+                        '	(slot name\n'
+                        '		(type STRING)\n'
+                        '		(default ""))\n'
+                        '	(slot rootnode\n'
+                        '		(type STRING)\n'
+                        '		(default "")))'
                         '\n'
                         ';;;;;;;;;;;;;;;;;;;;;;;;;\n'
                         ';planned space for rules:\n'
@@ -151,15 +179,26 @@ class Outputter:
                         ';\n'
                         ';\n'
                         ';\n\n')
-                for i in self:
-                    f.write(f'(assert (node (name "{i}")))\n')
+                f.write(repr(test))
+                for node in self:
+                    f.write(node)
+                    # print(repr(node))
                 f.write("\n(run)\n\n")
 
 
-    def jess_printer(self):
-        # for i in self:
-        #     print("(assert (node (name \"" + str(i) + "\")))")
-        pass
+    # def jess_printer(self):
+    #     for i in self:
+    #         test = f'(assert (node (name "{i}")))\n '
+    #                 # f'(parent "{Node.parent}")'
+    #                 # f'(cost "{Node.cost}")'
+    #                 # f'(duration "{Node.duration}")'
+    #                 # f'(exploited "{Node.exploited}")'
+    #                 # f'(countermeasure "{Node.countermeasure}")'
+    #                 # f'(siblings "{Node.siblings}")'
+    #                 # f'(children "{Node.children}")'
+    #                 # f'))\n')
+    #     return test
+    #     # pass
 
     def node_printer(self):
         for i in self:
@@ -206,7 +245,6 @@ class Splitter:
         # todo: for getroot look at tool name and process differently based upon that tool's name - move to main
         split_file = self.getroot()
         # node_list = {'name': '', 'parent': '', 'cost': '', 'duration': '', 'exploited': '', 'countermeasure': '', 'siblings': '', 'children': ''}
-        node_list = []
         level = []
         levels = []
         # below prints out refinements. Todo: split text to get dis/conjunctive and switchroles then pipe that into "if"
@@ -214,9 +252,13 @@ class Splitter:
             node_list.append(child.attrib)
         return split_file, node_list'''
         # below prints out node names
-        for node in split_file.iter('label'):
-            # print(node.text + "\"\n", end="\"")
-            node_list.append(node.text)
+        # for node in split_file.iter('label'):
+        #     # print(node.text + "\"\n", end="\"")
+        #     node_list.append(node.text)
+        node_list = {node.text for node in split_file.iter('label')}
+        # for thing, i in node_list:
+        #     thing = Node(node_list{i})
+
         for l in split_file.iter('node'):
             level.append(l.text)
             mylst = [s.replace('\n\t', '') for s in level]
