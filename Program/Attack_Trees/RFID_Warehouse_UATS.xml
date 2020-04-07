@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="ASCII"?>
+<nl.utwente.ewi.fmt.UATMM:AttackTree xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:nl.utwente.ewi.fmt.UATMM="ecore:UATMM_structure" Root="0">
+  <Nodes children="1 62 63 64 65 66" id="0" label="RFID Dos Attack">
+    <connector xsi:type="nl.utwente.ewi.fmt.UATMM:OR"/>
+  </Nodes>
+  <Nodes children="2 44 61" parents="0" id="1" label="Remove Tag">
+    <connector xsi:type="nl.utwente.ewi.fmt.UATMM:OR"/>
+  </Nodes>
+  <Nodes children="3 39" parents="1" id="2" label="Remove Tag Self">
+    <connector xsi:type="nl.utwente.ewi.fmt.UATMM:OR"/>
+  </Nodes>
+  <Nodes children="4 21 22 29" parents="2" id="3" label="Infiltrate Building">
+    <connector xsi:type="nl.utwente.ewi.fmt.UATMM:OR"/>
+  </Nodes>
+  <Nodes children="5 12 16" parents="3" id="4" label="Breaking and Entering">
+    <connector xsi:type="nl.utwente.ewi.fmt.UATMM:AND"/>
+  </Nodes>
+  <Nodes children="6 11" parents="4" id="5" label="Get onto Premises">
+    <connector xsi:type="nl.utwente.ewi.fmt.UATMM:OR"/>
+  </Nodes>
+  <Nodes children="7" parents="5" id="6" label="Climb over Fence">
+    <connector xsi:type="nl.utwente.ewi.fmt.UATMM:OR"/>
+  </Nodes>
+  <Nodes children="8" parents="6" id="7" label="Barbed Wire" role="Counteracting">
+    <connector xsi:type="nl.utwente.ewi.fmt.UATMM:OR"/>
+  </Nodes>
+  <Nodes children="9 10" parents="7" id="8" label="Guard Aganist Barbs">
+    <connector xsi:type="nl.utwente.ewi.fmt.UATMM:OR"/>
+  </Nodes>
+  <Nodes parents="8" id="9" label="Use Carpet on Barbs"/>
+  <Nodes parents="8" id="10" label="Wear Protective Clothing"/>
+  <Nodes parents="5" id="11" label="Enter through Gate"/>
+  <Nodes children="13 15" parents="4" id="12" label="Get into Warehouse">
+    <connector xsi:type="nl.utwente.ewi.fmt.UATMM:OR"/>
+  </Nodes>
+  <Nodes children="14" parents="12" id="13" label="Enter through Door">
+    <connector xsi:type="nl.utwente.ewi.fmt.UATMM:OR"/>
+  </Nodes>
+  <Nodes parents="13" id="14" label="Monitor with Biometric Sensors" role="Counteracting"/>
+  <Nodes parents="12" id="15" label="Enter through Loading Dock"/>
+  <Nodes children="17" parents="4" id="16" label="Monitor with Security Cameras" role="Counteracting">
+    <connector xsi:type="nl.utwente.ewi.fmt.UATMM:OR"/>
+  </Nodes>
+  <Nodes children="18 19" parents="16" id="17" label="Disable Cameras">
+    <connector xsi:type="nl.utwente.ewi.fmt.UATMM:OR"/>
+  </Nodes>
+  <Nodes parents="17" id="18" label="Laser Cameras"/>
+  <Nodes children="20" parents="17" id="19" label="Video Loop Cameras">
+    <connector xsi:type="nl.utwente.ewi.fmt.UATMM:OR"/>
+  </Nodes>
+  <Nodes parents="19" id="20" label="Employ Guards" role="Counteracting"/>
+  <Nodes parents="3" id="21" label="Pose as a Truck Driver"/>
+  <Nodes children="23 24" parents="3" id="22" label="Postal Trojan Attack">
+    <connector xsi:type="nl.utwente.ewi.fmt.UATMM:AND"/>
+  </Nodes>
+  <Nodes parents="22" id="23" label="Hide in a Box"/>
+  <Nodes children="25" parents="22" id="24" label="Be Sent to the Warehouse">
+    <connector xsi:type="nl.utwente.ewi.fmt.UATMM:OR"/>
+  </Nodes>
+  <Nodes children="26" parents="24" id="25" label="Sniffer Dog" role="Counteracting">
+    <connector xsi:type="nl.utwente.ewi.fmt.UATMM:OR"/>
+  </Nodes>
+  <Nodes children="27 28" parents="25" id="26" label="Confuse Dog">
+    <connector xsi:type="nl.utwente.ewi.fmt.UATMM:OR"/>
+  </Nodes>
+  <Nodes parents="26" id="27" label="Distract Dog with Rats"/>
+  <Nodes parents="26" id="28" label="Spray Pepper"/>
+  <Nodes children="30 31" parents="3" id="29" label="Visitor Attack">
+    <connector xsi:type="nl.utwente.ewi.fmt.UATMM:AND"/>
+  </Nodes>
+  <Nodes parents="29" id="30" label="Come as Visitor"/>
+  <Nodes children="32" parents="29" id="31" label="Hide in Bathroom">
+    <connector xsi:type="nl.utwente.ewi.fmt.UATMM:OR"/>
+  </Nodes>
+  <Nodes children="33 34 37 38" parents="31" id="32" label="Track Visitors" role="Counteracting">
+    <connector xsi:type="nl.utwente.ewi.fmt.UATMM:OR"/>
+  </Nodes>
+  <Nodes parents="32" id="33" label="Escort Visitors" role="Counteracting"/>
+  <Nodes children="35" parents="32" id="34" label="Register in Visitor's Log" role="Counteracting">
+    <connector xsi:type="nl.utwente.ewi.fmt.UATMM:OR"/>
+  </Nodes>
+  <Nodes children="36" parents="34" id="35" label="Fake Log Entry">
+    <connector xsi:type="nl.utwente.ewi.fmt.UATMM:OR"/>
+  </Nodes>
+  <Nodes parents="35" id="36" label="Attended Visitor's Log" role="Counteracting"/>
+  <Nodes parents="32" id="37" label="Attend Visitor's Log" role="Counteracting"/>
+  <Nodes parents="32" id="38" label="Presence Detectors on Premises" role="Counteracting"/>
+  <Nodes children="40 41 42 43" parents="2" id="39" label="Infiltrate Organisation">
+    <connector xsi:type="nl.utwente.ewi.fmt.UATMM:OR"/>
+  </Nodes>
+  <Nodes parents="39" id="40" label="Get Hired as Warehouse Staff"/>
+  <Nodes parents="39" id="41" label="Pose as Warehouse Employee"/>
+  <Nodes parents="39" id="42" label="Buy the Warehouse"/>
+  <Nodes parents="39" id="43" label="Background Check" role="Counteracting"/>
+  <Nodes children="45 51 52 53" parents="1" id="44" label="Other Person Removes Tag">
+    <connector xsi:type="nl.utwente.ewi.fmt.UATMM:OR"/>
+  </Nodes>
+  <Nodes children="46 47 48" parents="44" id="45" label="Bribe">
+    <connector xsi:type="nl.utwente.ewi.fmt.UATMM:AND"/>
+  </Nodes>
+  <Nodes parents="45" id="46" label="Identify Corruptible Subject"/>
+  <Nodes parents="45" id="47" label="Bribe Subject"/>
+  <Nodes children="49 50" parents="45" id="48" label="Thwart Employees" role="Counteracting">
+    <connector xsi:type="nl.utwente.ewi.fmt.UATMM:AND"/>
+  </Nodes>
+  <Nodes parents="48" id="49" label="Security Awareness Training" role="Counteracting"/>
+  <Nodes parents="48" id="50" label="Threaten to Fire Employees" role="Counteracting"/>
+  <Nodes parents="44" id="51" label="Threaten"/>
+  <Nodes parents="44" id="52" label="Blackmail"/>
+  <Nodes children="54 57 60" parents="44" id="53" label="Trick">
+    <connector xsi:type="nl.utwente.ewi.fmt.UATMM:OR"/>
+  </Nodes>
+  <Nodes children="55" parents="53" id="54" label="Send False Replacement Tag">
+    <connector xsi:type="nl.utwente.ewi.fmt.UATMM:OR"/>
+  </Nodes>
+  <Nodes children="56" parents="54" id="55" label="Authenticate Tag" role="Counteracting">
+    <connector xsi:type="nl.utwente.ewi.fmt.UATMM:OR"/>
+  </Nodes>
+  <Nodes parents="55" id="56" label="Break Authentication"/>
+  <Nodes children="58 59" parents="53" id="57" label="False Management Order">
+    <connector xsi:type="nl.utwente.ewi.fmt.UATMM:AND"/>
+  </Nodes>
+  <Nodes parents="57" id="58" label="Infiltrate Management"/>
+  <Nodes parents="57" id="59" label="Order Tag Replacement"/>
+  <Nodes parents="53" id="60" label="Security Awareness Training" role="Counteracting"/>
+  <Nodes parents="1" id="61" label="Attach with Strenger Adhesive" role="Counteracting"/>
+  <Nodes parents="0" id="62" label="Disable Tag"/>
+  <Nodes parents="0" id="63" label="Overload Tag"/>
+  <Nodes parents="0" id="64" label="Disable Reader"/>
+  <Nodes parents="0" id="65" label="Disable Backend"/>
+  <Nodes children="67 80" parents="0" id="66" label="Block Communication">
+    <connector xsi:type="nl.utwente.ewi.fmt.UATMM:OR"/>
+  </Nodes>
+  <Nodes children="68 74 75 76" parents="66" id="67" label="Block Tag Reader">
+    <connector xsi:type="nl.utwente.ewi.fmt.UATMM:OR"/>
+  </Nodes>
+  <Nodes children="69 71" parents="67" id="68" label="Shield Tag">
+    <connector xsi:type="nl.utwente.ewi.fmt.UATMM:AND"/>
+  </Nodes>
+  <Nodes children="70" parents="68" id="69" label="Be in Vicinity of Tag">
+    <connector xsi:type="nl.utwente.ewi.fmt.UATMM:OR"/>
+  </Nodes>
+  <Nodes parents="69" id="70" label="Secure Warehouse" role="Counteracting"/>
+  <Nodes children="72 73" parents="68" id="71" label="Faraday Cage">
+    <connector xsi:type="nl.utwente.ewi.fmt.UATMM:OR"/>
+  </Nodes>
+  <Nodes parents="71" id="72" label="Cage Around Reader"/>
+  <Nodes parents="71" id="73" label="Cage Around Tag"/>
+  <Nodes parents="67" id="74" label="Blocker Reader"/>
+  <Nodes parents="67" id="75" label="Blocker Tag"/>
+  <Nodes children="77" parents="67" id="76" label="Jam Signal">
+    <connector xsi:type="nl.utwente.ewi.fmt.UATMM:OR"/>
+  </Nodes>
+  <Nodes children="78 79" parents="76" id="77" label="Isolate Network" role="Counteracting">
+    <connector xsi:type="nl.utwente.ewi.fmt.UATMM:OR"/>
+  </Nodes>
+  <Nodes parents="77" id="78" label="Secure Warehouse" role="Counteracting"/>
+  <Nodes parents="77" id="79" label="Faraday Around Tag and Reader" role="Counteracting"/>
+  <Nodes children="81" parents="66" id="80" label="Block Reader Backend">
+    <connector xsi:type="nl.utwente.ewi.fmt.UATMM:OR"/>
+  </Nodes>
+  <Nodes parents="80" id="81" label="DoS in Network"/>
+</nl.utwente.ewi.fmt.UATMM:AttackTree>

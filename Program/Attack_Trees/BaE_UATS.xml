@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="ASCII"?>
+<nl.utwente.ewi.fmt.UATMM:AttackTree xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:nl.utwente.ewi.fmt.UATMM="ecore:UATMM_structure" Root="0">
+  <Nodes children="1 8 12" id="0" label="Breaking and Entering">
+    <connector xsi:type="nl.utwente.ewi.fmt.UATMM:AND"/>
+  </Nodes>
+  <Nodes children="2 7" parents="0" id="1" label="Get onto Premises">
+    <connector xsi:type="nl.utwente.ewi.fmt.UATMM:OR"/>
+  </Nodes>
+  <Nodes children="3" parents="1" id="2" label="Climb over Fence">
+    <connector xsi:type="nl.utwente.ewi.fmt.UATMM:OR"/>
+  </Nodes>
+  <Nodes children="4" parents="2" id="3" label="Barbed Wire" role="Counteracting">
+    <connector xsi:type="nl.utwente.ewi.fmt.UATMM:OR"/>
+  </Nodes>
+  <Nodes children="5 6" parents="3" id="4" label="Guard Aganist Barbs">
+    <connector xsi:type="nl.utwente.ewi.fmt.UATMM:OR"/>
+  </Nodes>
+  <Nodes parents="4" id="5" label="Use Carpet on Barbs"/>
+  <Nodes parents="4" id="6" label="Wear Protective Clothing"/>
+  <Nodes parents="1" id="7" label="Enter through Gate"/>
+  <Nodes children="9 11" parents="0" id="8" label="Get into Warehouse">
+    <connector xsi:type="nl.utwente.ewi.fmt.UATMM:OR"/>
+  </Nodes>
+  <Nodes children="10" parents="8" id="9" label="Enter through Door">
+    <connector xsi:type="nl.utwente.ewi.fmt.UATMM:OR"/>
+  </Nodes>
+  <Nodes parents="9" id="10" label="Monitor with Biometric Sensors" role="Counteracting"/>
+  <Nodes parents="8" id="11" label="Enter through Loading Dock"/>
+  <Nodes children="13" parents="0" id="12" label="Monitor with Security Cameras" role="Counteracting">
+    <connector xsi:type="nl.utwente.ewi.fmt.UATMM:OR"/>
+  </Nodes>
+  <Nodes children="14 15" parents="12" id="13" label="Disable Cameras">
+    <connector xsi:type="nl.utwente.ewi.fmt.UATMM:OR"/>
+  </Nodes>
+  <Nodes parents="13" id="14" label="Laser Cameras"/>
+  <Nodes children="16" parents="13" id="15" label="Video Loop Cameras">
+    <connector xsi:type="nl.utwente.ewi.fmt.UATMM:OR"/>
+  </Nodes>
+  <Nodes parents="15" id="16" label="Employ Guards" role="Counteracting"/>
+</nl.utwente.ewi.fmt.UATMM:AttackTree>

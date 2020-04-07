@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="ASCII"?>
+<nl.utwente.ewi.fmt.UATMM:AttackTree xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:nl.utwente.ewi.fmt.UATMM="ecore:UATMM_structure" Root="0">
+  <Nodes children="1 8" id="0" label="Bank Account">
+    <connector xsi:type="nl.utwente.ewi.fmt.UATMM:OR"/>
+  </Nodes>
+  <Nodes children="2 7" parents="0" id="1" label="ATM">
+    <connector xsi:type="nl.utwente.ewi.fmt.UATMM:AND"/>
+  </Nodes>
+  <Nodes children="3 4 6" parents="1" id="2" label="PIN">
+    <connector xsi:type="nl.utwente.ewi.fmt.UATMM:OR"/>
+  </Nodes>
+  <Nodes parents="2" id="3" label="Eavesdrop"/>
+  <Nodes children="5" parents="2" id="4" label="Find Note">
+    <connector xsi:type="nl.utwente.ewi.fmt.UATMM:OR"/>
+  </Nodes>
+  <Nodes parents="4" id="5" label="Memorize" role="Counteracting"/>
+  <Nodes parents="2" id="6" label="Force"/>
+  <Nodes parents="1" id="7" label="Card"/>
+  <Nodes children="9 12 13" parents="0" id="8" label="Online">
+    <connector xsi:type="nl.utwente.ewi.fmt.UATMM:AND"/>
+  </Nodes>
+  <Nodes children="10 11" parents="8" id="9" label="Password">
+    <connector xsi:type="nl.utwente.ewi.fmt.UATMM:OR"/>
+  </Nodes>
+  <Nodes parents="9" id="10" label="Phishing"/>
+  <Nodes parents="9" id="11" label="Key Logger"/>
+  <Nodes parents="8" id="12" label="User Name"/>
+  <Nodes children="14 15 16" parents="8" id="13" label="2nd Auth Factor" role="Counteracting">
+    <connector xsi:type="nl.utwente.ewi.fmt.UATMM:OR"/>
+  </Nodes>
+  <Nodes parents="13" id="14" label="Key Fobs" role="Counteracting"/>
+  <Nodes parents="13" id="15" label="PIN Pad" role="Counteracting"/>
+  <Nodes children="17 18" parents="13" id="16" label="Malware">
+    <connector xsi:type="nl.utwente.ewi.fmt.UATMM:OR"/>
+  </Nodes>
+  <Nodes parents="16" id="17" label="Browser"/>
+  <Nodes parents="16" id="18" label="OS"/>
+</nl.utwente.ewi.fmt.UATMM:AttackTree>

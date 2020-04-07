@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="ASCII"?>
+<nl.utwente.ewi.fmt.UATMM:AttackTree xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:nl.utwente.ewi.fmt.UATMM="ecore:UATMM_structure" Root="0">
+  <Nodes children="1 11 36" id="0" label="Data Confidentiality" role="Counteracting">
+    <connector xsi:type="nl.utwente.ewi.fmt.UATMM:AND"/>
+  </Nodes>
+  <Nodes children="2 9 10" parents="0" id="1" label="Network Security" role="Counteracting">
+    <connector xsi:type="nl.utwente.ewi.fmt.UATMM:AND"/>
+  </Nodes>
+  <Nodes children="3" parents="1" id="2" label="Access Control" role="Counteracting">
+    <connector xsi:type="nl.utwente.ewi.fmt.UATMM:OR"/>
+  </Nodes>
+  <Nodes children="4" parents="2" id="3" label="Passwords" role="Counteracting">
+    <connector xsi:type="nl.utwente.ewi.fmt.UATMM:OR"/>
+  </Nodes>
+  <Nodes children="5" parents="3" id="4" label="Dictionary Attack">
+    <connector xsi:type="nl.utwente.ewi.fmt.UATMM:OR"/>
+  </Nodes>
+  <Nodes children="6" parents="4" id="5" label="Strong Passwords" role="Counteracting">
+    <connector xsi:type="nl.utwente.ewi.fmt.UATMM:OR"/>
+  </Nodes>
+  <Nodes children="7 8" parents="5" id="6" label="Strong Passwords Attacks">
+    <connector xsi:type="nl.utwente.ewi.fmt.UATMM:OR"/>
+  </Nodes>
+  <Nodes parents="6" id="7" label="Find Note"/>
+  <Nodes parents="6" id="8" label="Same Password Different Account"/>
+  <Nodes parents="1" id="9" label="Firewalls" role="Counteracting"/>
+  <Nodes parents="1" id="10" label="IDS" role="Counteracting"/>
+  <Nodes children="12" parents="0" id="11" label="Physical Security" role="Counteracting">
+    <connector xsi:type="nl.utwente.ewi.fmt.UATMM:OR"/>
+  </Nodes>
+  <Nodes children="13 18 26 28" parents="11" id="12" label="Break In">
+    <connector xsi:type="nl.utwente.ewi.fmt.UATMM:OR"/>
+  </Nodes>
+  <Nodes children="14" parents="12" id="13" label="Back Door">
+    <connector xsi:type="nl.utwente.ewi.fmt.UATMM:OR"/>
+  </Nodes>
+  <Nodes children="15" parents="13" id="14" label="Lock" role="Counteracting">
+    <connector xsi:type="nl.utwente.ewi.fmt.UATMM:OR"/>
+  </Nodes>
+  <Nodes children="16 17" parents="14" id="15" label="Defeat Lock">
+    <connector xsi:type="nl.utwente.ewi.fmt.UATMM:OR"/>
+  </Nodes>
+  <Nodes parents="15" id="16" label="Force Open"/>
+  <Nodes parents="15" id="17" label="Acquire Keys"/>
+  <Nodes children="19 24" parents="12" id="18" label="Fire Escape">
+    <connector xsi:type="nl.utwente.ewi.fmt.UATMM:OR"/>
+  </Nodes>
+  <Nodes children="20" parents="18" id="19" label="Door">
+    <connector xsi:type="nl.utwente.ewi.fmt.UATMM:OR"/>
+  </Nodes>
+  <Nodes children="21" parents="19" id="20" label="Lock" role="Counteracting">
+    <connector xsi:type="nl.utwente.ewi.fmt.UATMM:OR"/>
+  </Nodes>
+  <Nodes children="22 23" parents="20" id="21" label="Defeat Lock">
+    <connector xsi:type="nl.utwente.ewi.fmt.UATMM:OR"/>
+  </Nodes>
+  <Nodes parents="21" id="22" label="Force Open"/>
+  <Nodes parents="21" id="23" label="Acquire Keys"/>
+  <Nodes children="25" parents="18" id="24" label="Window">
+    <connector xsi:type="nl.utwente.ewi.fmt.UATMM:OR"/>
+  </Nodes>
+  <Nodes parents="24" id="25" label="Reinforce" role="Counteracting"/>
+  <Nodes children="27" parents="12" id="26" label="Window">
+    <connector xsi:type="nl.utwente.ewi.fmt.UATMM:OR"/>
+  </Nodes>
+  <Nodes parents="26" id="27" label="Reinforce" role="Counteracting"/>
+  <Nodes children="29" parents="12" id="28" label="Security Guard" role="Counteracting">
+    <connector xsi:type="nl.utwente.ewi.fmt.UATMM:OR"/>
+  </Nodes>
+  <Nodes children="30 31 34 35" parents="28" id="29" label="Defeat Guard">
+    <connector xsi:type="nl.utwente.ewi.fmt.UATMM:OR"/>
+  </Nodes>
+  <Nodes parents="29" id="30" label="Bribe"/>
+  <Nodes children="32 33" parents="29" id="31" label="Overpower">
+    <connector xsi:type="nl.utwente.ewi.fmt.UATMM:AND"/>
+  </Nodes>
+  <Nodes parents="31" id="32" label="Outnumber"/>
+  <Nodes parents="31" id="33" label="Use Weapons"/>
+  <Nodes parents="29" id="34" label="Steal Keys"/>
+  <Nodes parents="29" id="35" label="Video Cameras" role="Counteracting"/>
+  <Nodes children="37 39" parents="0" id="36" label="Employee Attack">
+    <connector xsi:type="nl.utwente.ewi.fmt.UATMM:OR"/>
+  </Nodes>
+  <Nodes children="38" parents="36" id="37" label="Corruption">
+    <connector xsi:type="nl.utwente.ewi.fmt.UATMM:OR"/>
+  </Nodes>
+  <Nodes parents="37" id="38" label="Screening" role="Counteracting"/>
+  <Nodes children="40" parents="36" id="39" label="Social Engineering">
+    <connector xsi:type="nl.utwente.ewi.fmt.UATMM:OR"/>
+  </Nodes>
+  <Nodes parents="39" id="40" label="Sensitivity Training" role="Counteracting"/>
+</nl.utwente.ewi.fmt.UATMM:AttackTree>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="ASCII"?>
+<nl.utwente.ewi.fmt.UATMM:AttackTree xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:nl.utwente.ewi.fmt.UATMM="ecore:UATMM_structure" Root="0">
+  <Nodes children="1 14" id="0" label="Block Communication">
+    <connector xsi:type="nl.utwente.ewi.fmt.UATMM:OR"/>
+  </Nodes>
+  <Nodes children="2 8 9 10" parents="0" id="1" label="Block Tag Reader">
+    <connector xsi:type="nl.utwente.ewi.fmt.UATMM:OR"/>
+  </Nodes>
+  <Nodes children="3 5" parents="1" id="2" label="Shield Tag">
+    <connector xsi:type="nl.utwente.ewi.fmt.UATMM:AND"/>
+  </Nodes>
+  <Nodes children="4" parents="2" id="3" label="Be in Vicinity of Tag">
+    <connector xsi:type="nl.utwente.ewi.fmt.UATMM:OR"/>
+  </Nodes>
+  <Nodes parents="3" id="4" label="Secure Warehouse" role="Counteracting"/>
+  <Nodes children="6 7" parents="2" id="5" label="Faraday Cage">
+    <connector xsi:type="nl.utwente.ewi.fmt.UATMM:OR"/>
+  </Nodes>
+  <Nodes parents="5" id="6" label="Cage Around Reader"/>
+  <Nodes parents="5" id="7" label="Cage Around Tag"/>
+  <Nodes parents="1" id="8" label="Blocker Reader"/>
+  <Nodes parents="1" id="9" label="Blocker Tag"/>
+  <Nodes children="11" parents="1" id="10" label="Jam Signal">
+    <connector xsi:type="nl.utwente.ewi.fmt.UATMM:OR"/>
+  </Nodes>
+  <Nodes children="12 13" parents="10" id="11" label="Isolate Network" role="Counteracting">
+    <connector xsi:type="nl.utwente.ewi.fmt.UATMM:OR"/>
+  </Nodes>
+  <Nodes parents="11" id="12" label="Secure Warehouse" role="Counteracting"/>
+  <Nodes parents="11" id="13" label="Faraday Around Tag and Reader" role="Counteracting"/>
+  <Nodes children="15" parents="0" id="14" label="Block Reader Backend">
+    <connector xsi:type="nl.utwente.ewi.fmt.UATMM:OR"/>
+  </Nodes>
+  <Nodes parents="14" id="15" label="Dos in Network"/>
+</nl.utwente.ewi.fmt.UATMM:AttackTree>

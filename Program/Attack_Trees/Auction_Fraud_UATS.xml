@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="ASCII"?>
+<nl.utwente.ewi.fmt.UATMM:AttackTree xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:nl.utwente.ewi.fmt.UATMM="ecore:UATMM_structure" Root="0">
+  <Nodes children="1 18 24 33" id="0" label="Auction Fraud">
+    <connector xsi:type="nl.utwente.ewi.fmt.UATMM:AND"/>
+  </Nodes>
+  <Nodes children="2 4 9" parents="0" id="1" label="Preparation Phase">
+    <connector xsi:type="nl.utwente.ewi.fmt.UATMM:AND"/>
+  </Nodes>
+  <Nodes children="3" parents="1" id="2" label="Ask Vera about Sam">
+    <connector xsi:type="nl.utwente.ewi.fmt.UATMM:OR"/>
+  </Nodes>
+  <Nodes parents="2" id="3" label="Subvert Verify" role="Counteracting"/>
+  <Nodes children="5 6 7 8" parents="1" id="4" label="Shop at Sam">
+    <connector xsi:type="nl.utwente.ewi.fmt.UATMM:AND"/>
+  </Nodes>
+  <Nodes parents="4" id="5" label="Acquire Malware"/>
+  <Nodes parents="4" id="6" label="Acquire Emails"/>
+  <Nodes parents="4" id="7" label="Acquire Chris CC"/>
+  <Nodes parents="4" id="8" label="Police Internet" role="Counteracting"/>
+  <Nodes children="10 14" parents="1" id="9" label="Send Emails">
+    <connector xsi:type="nl.utwente.ewi.fmt.UATMM:AND"/>
+  </Nodes>
+  <Nodes children="11 13" parents="9" id="10" label="Job Offer">
+    <connector xsi:type="nl.utwente.ewi.fmt.UATMM:AND"/>
+  </Nodes>
+  <Nodes children="12" parents="10" id="11" label="Rachel Accepts Job">
+    <connector xsi:type="nl.utwente.ewi.fmt.UATMM:OR"/>
+  </Nodes>
+  <Nodes parents="11" id="12" label="Train Rachel" role="Counteracting"/>
+  <Nodes parents="10" id="13" label="Send Job Ad to Emails"/>
+  <Nodes children="15 17" parents="9" id="14" label="Malware Distribution">
+    <connector xsi:type="nl.utwente.ewi.fmt.UATMM:AND"/>
+  </Nodes>
+  <Nodes children="16" parents="14" id="15" label="Tino Opens Attachment">
+    <connector xsi:type="nl.utwente.ewi.fmt.UATMM:OR"/>
+  </Nodes>
+  <Nodes parents="15" id="16" label="Train Tina" role="Counteracting"/>
+  <Nodes parents="14" id="17" label="Send Malware to Emails"/>
+  <Nodes children="19 21 22" parents="0" id="18" label="Buy from Alice">
+    <connector xsi:type="nl.utwente.ewi.fmt.UATMM:AND"/>
+  </Nodes>
+  <Nodes children="20" parents="18" id="19" label="Credentials from Tina">
+    <connector xsi:type="nl.utwente.ewi.fmt.UATMM:OR"/>
+  </Nodes>
+  <Nodes parents="19" id="20" label="Profile Credential Usage" role="Counteracting"/>
+  <Nodes parents="18" id="21" label="Purchase Goods"/>
+  <Nodes children="23" parents="18" id="22" label="Pay with Chris CC">
+    <connector xsi:type="nl.utwente.ewi.fmt.UATMM:OR"/>
+  </Nodes>
+  <Nodes parents="22" id="23" label="Check CCs for Theft" role="Counteracting"/>
+  <Nodes children="25 27 31" parents="0" id="24" label="Delivery Process">
+    <connector xsi:type="nl.utwente.ewi.fmt.UATMM:AND"/>
+  </Nodes>
+  <Nodes children="26" parents="24" id="25" label="Max to Rachel">
+    <connector xsi:type="nl.utwente.ewi.fmt.UATMM:OR"/>
+  </Nodes>
+  <Nodes parents="25" id="26" label="Mark Goods" role="Counteracting"/>
+  <Nodes children="28" parents="24" id="27" label="Rachel to Dave">
+    <connector xsi:type="nl.utwente.ewi.fmt.UATMM:OR"/>
+  </Nodes>
+  <Nodes children="29 30" parents="27" id="28" label="Stop in Transit" role="Counteracting">
+    <connector xsi:type="nl.utwente.ewi.fmt.UATMM:OR"/>
+  </Nodes>
+  <Nodes parents="28" id="29" label="Mark Goods" role="Counteracting"/>
+  <Nodes parents="28" id="30" label="Spot-check Drop Boxes" role="Counteracting"/>
+  <Nodes children="32" parents="24" id="31" label="Otto from Dave">
+    <connector xsi:type="nl.utwente.ewi.fmt.UATMM:OR"/>
+  </Nodes>
+  <Nodes parents="31" id="32" label="Spot-check Drop Boxes" role="Counteracting"/>
+  <Nodes children="34" parents="0" id="33" label="Otto sells to Perry">
+    <connector xsi:type="nl.utwente.ewi.fmt.UATMM:OR"/>
+  </Nodes>
+  <Nodes children="35 36" parents="33" id="34" label="Prevent Sale" role="Counteracting">
+    <connector xsi:type="nl.utwente.ewi.fmt.UATMM:OR"/>
+  </Nodes>
+  <Nodes parents="34" id="35" label="Police Pawn Brokers" role="Counteracting"/>
+  <Nodes parents="34" id="36" label="Revenue Checks" role="Counteracting"/>
+</nl.utwente.ewi.fmt.UATMM:AttackTree>
