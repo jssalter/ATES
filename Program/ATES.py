@@ -41,20 +41,23 @@ def ates(file, pvalue):
         # Gets the file name, extension, and path from the input files.
         file_path, file_name = os.path.split(file)
         new_file_name, old_ext = os.path.splitext(file_name)
+        # Changes file name for version two.
+        if pvalue == 2:
+            new_file_name += 'v2'
         # Parses the XML file.
         root = inputter(file)
         # Places the node data into lists.
         ids, names, parents, costs, times, exploiteds, countermeasures, children, connectors, probabilities, difficulties = lister(root)
-        # Changes file name for version two.
-        if pvalue == 2:
-            new_file_name += 'v2'
         # Writes the new file in JESS format.
         printer(pvalue, ids, names, parents, costs, times, exploiteds, countermeasures, children, connectors, probabilities, difficulties, new_file_name)
     # Returns a message to the window for either success or failure.
     except Exception as e:
         message = f'An error ({e}) has occurred. Please try again.'
     else:
-        message = 'Conversion was successful!'
+        if len(ids) == 1:
+            message = 'XML file format was not understood!'
+        else:
+            message = 'Conversion was successful!'
     finally:
         label2 = tk.Label(frame, text=message)
         label2.pack()
